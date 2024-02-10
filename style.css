@@ -36,6 +36,10 @@ body {
     margin: 0;
 }
 
+.btn:hover {
+    background-color: #1c910d;
+}
+
 .font-exo-2 {
     cursor: default;
     text-align: center;
