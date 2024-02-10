@@ -2,7 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 # import voice_to_text as vtt
 import random
 
-class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+class HTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         # Set CORS headers
         self.send_response(200)
@@ -18,7 +18,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(random_character.encode())
         
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8000):
+def run(server_class=HTTPServer, handler_class=HTTPRequestHandler, port=8000):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print('Starting server...')
