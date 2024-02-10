@@ -11,9 +11,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1 class="font-exo-2">Eye Test</h1>
-        <button id="startBtn">Start Test</button>
+    <div id="startDiv" class="container">
+        <h1 class="font-exo-2">Eye Acuity Test</h1>
+        <button id="takeTestBtn" class="btn">Take Test</button>
+    </div>
+    <div id="instrDiv" class="container">
+        <h2 class="font-exo-2">Test Instructions</h2>
+        <ol>
+            <li>Make sure you will be undisturbed for the duration of the test</li>
+            <li>Stay arms length from your screen</li>
+            <li>Sit up straight with your back against your chair</li>
+            <li>Do not squint or strain your eyes</li>
+            <li>Read the letters out loud</li>
+            <li>If you are unsure about the letter, just say "Don't know"</li>
+            <li>Start with your LEFT EYE covered and click "I Understand" to start the test</li>
+        </ol>
+        <span>
+            <button id="goBackBtn" class="btn">Go Back</button>
+            <button id="understandBtn" class="btn">I Understand</button>
+        </span>
+    </div>
+    <div id="testDiv">
+        <p>Letter</p>
     </div>
 </body>
 </html>
