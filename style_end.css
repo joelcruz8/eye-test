@@ -1,0 +1,72 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+}
+
+.modal-dialog{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    
+}
+
+.modal-content {
+    background-color: #cccccc;
+    width: 70%;
+}
+
+.btn {
+    background-color: #237917;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #1c910d;
+}
+
+p {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h5 {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+}
+
+#title{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: center;
+    font-size: 45px;
+    padding-bottom: 20px;
+}
+
+.eye_sight{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eye_sight>div>p{
+    text-align: center;
+}
+
+.results_of_each_eye{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px;
+}
+
+.overall{
+    text-align: center;
+}
