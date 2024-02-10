@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test file</title>
+    <title>HTTP Request Demo</title>
 </head>
 <body>
-    
+    <p id="dataParagraph" style="font-size: 19pt;">Data from server will be displayed here.</p>
+    <button id="getDataButton">Get Data from Server</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to the button
+            document.getElementById('getDataButton').addEventListener('click', function() {
+                fetch('http://localhost:8000')
+                    .then(response => response.text())
+                    .then(data => {
+                        // Update the text of the <p> tag with the received data
+                        document.getElementById('dataParagraph').textContent = data;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+
+    </script>
 </body>
 </html>

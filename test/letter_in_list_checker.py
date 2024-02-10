@@ -1,4 +1,4 @@
-import voice_to_text as de
+import voiceToText as de
 def check_if_correct(int: i):
     text= de.receive_input()
     for x in i:
