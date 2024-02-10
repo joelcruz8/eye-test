@@ -1,0 +1,22 @@
+#title{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.eye_sight{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.eye_sight>div>p{
+    text-align: center;
+}
+.results_of_each_eye{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 20px;
+}
+.overall{
+    text-align: center;
+}
