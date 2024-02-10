@@ -92,7 +92,8 @@ body {
     width:3.5em; height:3.5em;
     background: #DBDBDB;
     top:20%;
-    display: flex;
+    /* Change display to flex when user speaks */
+    display: none;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 12px 8px #DBDBDB;
