@@ -19,6 +19,12 @@ body {
     padding: 30px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .btn {
     padding: 10px 20px;
     font-size: 20px;
@@ -48,31 +54,4 @@ li {
     font-optical-sizing: auto;
     font-style: normal;
     font-size: 16px;
-}
-
-p {
-    margin: 0;
-    font-family: "Exo 2", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-}
-
-#startDiv {
-    display: flex;
-}
-
-#instrDiv {
-    display: none;
-}
-
-#testDiv {
-    display: none;
-    min-height: 200px;
-    min-width: 200px;
-    background-color: #fff;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
 }
