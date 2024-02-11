@@ -103,7 +103,7 @@ var loop = true;
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
-    recognition.continuous = true;
+    recognition.continuous = false;
     recognition.lang = 'en-US';
 
     recognition.onresult = function(event) {
