@@ -49,7 +49,7 @@ async function test() {
                 colorBar.classList.remove('color-bar-animation');
                 void colorBar.offsetWidth;
                 colorBar.classList.add('color-bar-animation');
-                await sleep(10000);
+                await sleep(6000);
                 
                 if(userInput != null && userInput.toLowerCase() === "dont know"){
                     resultImg.src = './assets/images/xmark.png';

@@ -92,7 +92,7 @@ img {
 }
 
 .color-bar-animation {
-    animation: scaleDown 10s linear;
+    animation: scaleDown 6s linear;
     animation-fill-mode: forwards;
 }
 
