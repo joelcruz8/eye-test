@@ -67,6 +67,9 @@ async function test() {
                     }
                 }
 
+                micGlow.classList.remove('big-green');
+                micGlow.classList.add('normal-white');
+
                 resultDiv.style.display = 'flex';
                 letterDiv.style.display = 'none';
                 await sleep(2000);
