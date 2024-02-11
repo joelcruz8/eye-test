@@ -1,14 +1,14 @@
 // Functions: areEqual, getRandomChar, first_time, sleep, test
 function areEqual(String1, String2){
-    return String1.toLowerCase() === String2.toLowerCase()[0];
+    return String1 === String2.toUpperCase()[0];
 }
 
 
 function getRandomChar() {
     // Generate a random integer between 0 and 25
     let randomCharCode = Math.floor(Math.random() * 26);
-    // Convert the random integer to a character code representing a lowercase letter ('a' to 'z')
-    let charCode = randomCharCode + 97; // Adding 97 converts the integer to the character code of 'a'
+    // Convert the random integer to a character code representing an uppercase letter ('A' to 'Z')
+    let charCode = randomCharCode + parseInt('A'); // Adding 'A' converts the integer to the character code of 'A
     // Convert the character code to the corresponding character
     let randomChar = String.fromCharCode(charCode);
     return randomChar;
