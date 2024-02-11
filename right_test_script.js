@@ -38,7 +38,7 @@ async function test() {
     while (loop){
         temp_counter = first_time(start_trial_test);
     
-        if(!(temp_counter === 3 && incorrect_counter >= 2) || counter_row > 10){
+        if(!(temp_counter === 3 && incorrect_counter >= 2) || counter_row > 11){
             incorrect_counter = 0;
             counter_row++;
             for(let i = 0; i < 3; i++){
@@ -73,7 +73,7 @@ async function test() {
             }
 
             fontSize = fontSize - 2;
-            letter.style.fontSize = fontSize + 'px';
+            letter.style.fontSize = fontSize + 'pt';
         }
         else {
             loop = false;
