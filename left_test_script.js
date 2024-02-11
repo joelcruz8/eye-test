@@ -61,6 +61,10 @@ async function test() {
                         resultImg.src = './assets/images/xmark.png';
                         resultTxt.textContent = 'Incorrect';
                     }
+                    else {
+                        resultImg.src = './assets/images/checkmark.png';
+                        resultTxt.textContent = 'Correct';
+                    }
                 }
 
                 resultDiv.style.display = 'flex';
@@ -68,7 +72,7 @@ async function test() {
                 await sleep(2000);
             }
 
-            fontSize = fontSize - 1.25;
+            fontSize = fontSize - 2;
             letter.style.fontSize = fontSize + 'px';
         }
         else {
