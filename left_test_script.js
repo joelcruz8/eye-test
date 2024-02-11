@@ -33,6 +33,7 @@ async function test() {
     var temp_counter = 0;
     var counter_row = 0;
     var randTemp = '';
+    var fontSize = 19;
     
     while (loop){
         temp_counter = first_time(start_trial_test);
@@ -66,6 +67,8 @@ async function test() {
                 letterDiv.style.display = 'none';
                 await sleep(2000);
             }
+
+            letter.style.fontSize = (fontSize - 1.25) + 'px';
         }
         else {
             loop = false;
