@@ -1,6 +1,10 @@
 // Functions: areEqual, getRandomChar, first_time, sleep, test
 function areEqual(String1, String2){
-    return String1.toLowerCase() === String2.charAt(0).toLowerCase();
+    if (String2.length > 1) {
+        var temp = String2[0];
+        return String1.toLowerCase() === temp.toLowerCase();
+    }
+    return String1.toLowerCase() === String2.toLowerCase();
 }
 
 
