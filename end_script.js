@@ -16,12 +16,12 @@ function ratioMap(row_count){
     return '20/' + ratio[row_count];
 }
 
-function calculateOverallVision(leftKey, rightKey){
-    if(leftKey > rightKey){
-        return ratioMap(rightKey);
+function calculateOverallVision() {
+    if(left_rc > right_rc){
+        return rightScore;
     }
     else{
-        return ratioMap(leftKey);
+        return leftScore;
     }
 }
 
@@ -33,8 +33,7 @@ var right_rc = localStorage.getItem('right_rc');
 
 var leftScore = ratioMap(left_rc);
 var rightScore = ratioMap(right_rc);
-var overallScore = calculateOverallVision(ratioMap(), leftScore, rightScore);
 
 leftResult.textContent = '' + leftScore;
 rightResult.textContent = '' + rightScore;
-overallResult.textContent = '' + overallScore;
+overallResult.textContent = '' + calculateOverallVision();
