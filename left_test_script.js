@@ -60,8 +60,6 @@ async function test() {
                         incorrect_counter++;
                         resultImg.src = './assets/images/xmark.png';
                         resultTxt.textContent = 'Incorrect';
-                    }else{
-                        re
                     }
                     else {
                         resultImg.src = './assets/images/checkmark.png';
