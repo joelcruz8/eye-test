@@ -99,23 +99,25 @@ var userInput = '';
 var flag = 1;
 var loop = true;
 
+function startVoiceRegistration() {
+    const recognition = new webkitSpeechRecognition();
+    recognition.start();
+    recognition.onresult = function(event) {
+      const speechResult = event.results[0][0].transcript;
+      userInput=speechResult;
+      console.log("Speech recognized:", userInput);
+      recognition.stop();
+    };
+  }
 // Check if the browser supports Speech Recognition
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-
-    recognition.continuous = false;
-    recognition.lang = 'en-US';
-
-    recognition.onresult = function(event) {
-        const last = event.results.length - 1;
-        userInput = event.results[last][0].transcript;
-    }
 
     micBtn.addEventListener('click', function() {
         if (flag == 1) {
             micGlow.classList.remove('normal-white');
             micGlow.classList.add('big-green');
-            recognition.start();
+            startVoiceRegistration()
             flag = 0;
         }
         else {
