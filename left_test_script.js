@@ -1,32 +1,4 @@
-function ratioMap(){
-    // Creating a hashmap using Map
-    let ratio={
-        10:"20",
-        9:"25",
-        8:"30",
-        7:"40",
-        6:"50",
-        5:"60",
-        4:"70",
-        3:"80",
-        2:"100",
-        1:"200"
-    };
-
-    return ratio;
-}
-
-
-function calculateOverallVision( ratio, leftKey, rightKey){
-    var ratioL= parseInt(ratio[leftKey]);
-    var ratioR= parseInt(ratio[rightKey]);
-
-    if(ratioR>ratioL){
-        return "20/"+ratioR;
-    }else{
-        return "20/"+ratioL;
-    }
-}
+// Functions: areEqual, getRandomChar, first_time, sleep, test
 function areEqual(String1, String2){
     return String1.toLowerCase() === String2.toLowerCase()[0];
 }
@@ -35,13 +7,10 @@ function areEqual(String1, String2){
 function getRandomChar() {
     // Generate a random integer between 0 and 25
     let randomCharCode = Math.floor(Math.random() * 26);
-    
     // Convert the random integer to a character code representing a lowercase letter ('a' to 'z')
     let charCode = randomCharCode + 97; // Adding 97 converts the integer to the character code of 'a'
-    
     // Convert the character code to the corresponding character
     let randomChar = String.fromCharCode(charCode);
-    
     return randomChar;
 }
 
@@ -54,17 +23,12 @@ function first_time(start_trial_test){
     }
 }
 
-function switch_html(str){
-    window.location.href = str;
-    window.location.replace(str);
-    window.location.reload();
-}
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function test() {
+    var start_trial_test = true;
     var incorrect_counter = 0;
     var temp_counter = 0;
     var counter_row = 0;
@@ -103,34 +67,33 @@ async function test() {
                 await sleep(2000);
             }
         }
-        else{
-            if (right_eye_check === true) {
-                switch_html("end.html");
-                loop = false;
-            } else {
-                right_eye_check = true;
-                switch_html("righteye.html");
-            }
-        }   
+        else {
+            loop = false;
+            localStorage.setItem('left_rc', counter_row);
+            window.location.href = "./right_popup.html";
+            return;
+        }
     }
 }
 
+// Run on page load
+const contBtn = document.getElementById('continue-btn');
+const testDiv = document.getElementById('test-div');
 
-
-// normel code
 const timerBar = document.getElementById('timer-bar');
 const colorBar = document.getElementById('color-bar');
 const micBtn = document.getElementById('btn');
+
 const micGlow = document.getElementById('copulation');
+
 const resultDiv = document.getElementById('result-div');
 const resultImg = document.getElementById('result-img');
 const resultTxt = document.getElementById('result-txt');
 const letterDiv = document.getElementById('letter-div');
 const letter = document.getElementById('letter');
+
 var userInput = '';
 var flag = 1;
-var start_trial_test = true;
-var right_eye_check = false;
 var loop = true;
 
 // Check if the browser supports Speech Recognition
