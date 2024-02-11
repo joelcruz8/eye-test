@@ -31,6 +31,34 @@ body {
     margin: 0;
     font-size: 24px;
 }
+
+.result-div {
+  background-color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+img {
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 10px auto;
+}
+
+#result {
+  font-family: "Exo 2", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
   
 /* Timer Bar */
 .progress-bar {
@@ -55,7 +83,7 @@ body {
 
 .color-bar {
     background-image: linear-gradient(to bottom, #b6b6b6, #696969);
-    animation: scaleDown 5s linear;
+    animation: scaleDown 10s linear;
     animation-fill-mode: forwards;
 }
 
@@ -89,49 +117,11 @@ body {
   position: relative;
   margin: 5% auto;
   border-radius: 50%;
-  width: 4em;
-  height: 4em;
-  background: #DBDBDB;
   top: 20%;
-  /* Change display to flex when user speaks */
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 12px 8px #DBDBDB;
-}
-  
-@keyframes speaking { 
-  from { 
-    background: #DBDBDB;
-    box-shadow: 0px 0px 12px 8px #DBDBDB;
-    width: 4em;
-    height: 4em;
-  } to { 
-    background: #16bb00;
-    box-shadow: 0px 0px 12px 8px #16bb00;
-    width: 5em;
-    height: 5em;
-  }  
-}
-
-@keyframes not_speaking { 
-  from { 
-    background: #16bb00;
-    box-shadow: 0px 0px 12px 8px #16bb00;
-    width: 5em;
-    height: 5em;
-  } to { 
-    background: #DBDBDB;
-    box-shadow: 0px 0px 12px 8px #DBDBDB;
-    width: 4em;
-    height: 4em;
-  }  
-}
-  
-.listening {
-  /* animation: speaking 0.2s cubic-bezier(0.25,0.1,0.25,1) 0s; */
-  /* animation: not_speaking 0.2s cubic-bezier(0.25,0.1,0.25,1) 0s; */
-  animation-fill-mode: forwards;
+  transition: all 0.2s cubic-bezier(0.25,0.1,0.25,1) 0s;
 }
 
 .gn{
@@ -183,4 +173,31 @@ body {
 .mc:after{
   top:50%; left:40%;
   width:20%; height:25%;
+}
+
+#btn {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.big-green {
+  background: #16bb00;
+  box-shadow: 0px 0px 12px 8px #16bb00;
+  width: 5em;
+  height: 5em;
+}
+
+.normal-white {
+  background: #DBDBDB;
+  box-shadow: 0px 0px 12px 8px #DBDBDB;
+  width: 4em;
+  height: 4em;
 }
