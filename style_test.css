@@ -12,7 +12,7 @@ body {
     margin: 0 auto;
 }
 
-.letter-div {
+#letter-div {
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -32,7 +32,7 @@ body {
     font-size: 24px;
 }
 
-.result-div {
+#result-div {
   background-color: #fff;
   display: none;
   align-items: center;
