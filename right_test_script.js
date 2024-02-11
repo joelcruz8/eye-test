@@ -8,7 +8,7 @@ function getRandomChar() {
     // Generate a random integer between 0 and 25
     let randomCharCode = Math.floor(Math.random() * 26);
     // Convert the random integer to a character code representing an uppercase letter ('A' to 'Z')
-    let charCode = randomCharCode + parseInt('A'); // Adding 'A' converts the integer to the character code of 'A
+    let charCode = randomCharCode + 65; // Adding 65 converts the integer to the character code of 'A'
     // Convert the character code to the corresponding character
     let randomChar = String.fromCharCode(charCode);
     return randomChar;
@@ -38,9 +38,9 @@ async function test() {
     while (loop){
         temp_counter = first_time(start_trial_test);
     
-        if(!(temp_counter === 3 && incorrect_counter >= 2)){
+        if(!(temp_counter === 3 && incorrect_counter >= 2) || counter_row > 10){
             incorrect_counter = 0;
-            ++counter_row;
+            counter_row++;
             for(let i = 0; i < 3; i++){
                 randTemp = getRandomChar();
                 letter.textContent = randTemp;
@@ -68,7 +68,8 @@ async function test() {
                 await sleep(2000);
             }
 
-            letter.style.fontSize = (fontSize - 1.25) + 'px';
+            fontSize = fontSize - 1.25;
+            letter.style.fontSize = fontSize + 'px';
         }
         else {
             loop = false;
