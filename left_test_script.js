@@ -106,6 +106,11 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     recognition.continuous = true;
     recognition.lang = 'en-US';
 
+    recognition.onresult = function(event) {
+        const last = event.results.length - 1;
+        userInput = event.results[last][0].transcript;
+    }
+
     micBtn.addEventListener('click', function() {
         if (flag == 1) {
             micGlow.classList.remove('normal-white');
@@ -117,10 +122,6 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
             micGlow.classList.remove('big-green');
             micGlow.classList.add('normal-white');
             recognition.stop();
-            recognition.onresult = function(event) {
-                const last = event.results.length - 1;
-                userInput = event.results[last][0].transcript;
-            }
             flag = 1;
         }
     });
