@@ -1,6 +1,6 @@
 // Functions: areEqual, getRandomChar, first_time, sleep, test
 function areEqual(String1, String2){
-    return String1.toLowerCase() === String2.toLowerCase()[0];
+    return String1.toLowerCase() === String2.charAt(0).toLowerCase();
 }
 
 
@@ -117,7 +117,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
             micGlow.classList.remove('normal-white');
             micGlow.classList.add('big-green');
             startVoiceRegistration()
-            flag = 0;
+           
         }
         else {
             micGlow.classList.remove('big-green');
