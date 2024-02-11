@@ -21,14 +21,11 @@ function ratioMap(row_count){
 }
 
 function calculateOverallVision(ratio, leftKey, rightKey){
-    var ratioL = parseInt(ratio[leftKey]);
-    var ratioR = parseInt(ratio[rightKey]);
-
-    if(ratioR > ratioL){
-        return "20/" + parseInt(ratio[rightKey]);
+    if(leftKey > rightKey){
+        return "20/" + ratio[rightKey];
     }
     else{
-        return "20/" + parseInt(ratio[leftKey]);
+        return "20/" + ratio[leftKey];
     }
 }
 
