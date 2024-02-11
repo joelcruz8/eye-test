@@ -1,7 +1,7 @@
+const timerBar = document.getElementById('timer-bar');
 const letter = document.getElementById('letter');
 const micBtn = document.getElementById('btn');
 const micGlow = document.getElementById("copulation");
-console.log(micGlow);
 const transcript = '';
 var flag = 1;
 
@@ -14,42 +14,22 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 
     micBtn.addEventListener('click', function() {
         if (flag == 1) {
-            micGlow.classList.remove("normal-white");
-            micGlow.classList.add("big-green");
+            micGlow.classList.remove('normal-white');
+            micGlow.classList.add('big-green');
             recognition.start();
             flag = 0;
         }
         else {
-            micGlow.classList.remove("big-green");
-            micGlow.classList.add("normal-white");
+            micGlow.classList.remove('big-green');
+            micGlow.classList.add('normal-white');
             recognition.stop();
             flag = 1;
         }
     });
-
-    // When speech is recognized
-    recognition.onresult = function(event) {
-        const last = event.results.length - 1;
-        transcript = event.results[last][0].transcript;
-    };
-
-    // When speech recognition stops
-    recognition.onend = function() {
-        if (transcript == letter.textContent) {
-
-        }
-        else {
-
-        }
-    };
-
-    // When there is an error with speech recognition
-    recognition.onerror = function(event) {
-    
-    };
-
-} 
+}
 else {
+    timerBar.style.display = 'none';
     micBtn.style.display = 'none';
+    letter.style.fontFamily = 'Exo 2, sans-serif';
     letter.textContent = 'Speech recognition not available';
 }
