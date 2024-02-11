@@ -116,7 +116,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     micBtn.addEventListener('click', function() {
         micGlow.classList.remove('normal-white');
         micGlow.classList.add('big-green');
-        startVoiceRegistration()
+        startVoiceRegistration();
     });
 }
 else {
