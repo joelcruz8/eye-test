@@ -103,29 +103,20 @@ function startVoiceRegistration() {
     const recognition = new webkitSpeechRecognition();
     recognition.start();
     recognition.onresult = function(event) {
-      const speechResult = event.results[0][0].transcript;
-      userInput=speechResult;
-      console.log("Speech recognized:", userInput);
-      recognition.stop();
+        const speechResult = event.results[0][0].transcript;
+        userInput=speechResult;
+        console.log("Speech recognized:", userInput);
+        recognition.stop();
+        micGlow.classList.remove('big-green');
+        micGlow.classList.add('normal-white');
     };
-  }
+}
 // Check if the browser supports Speech Recognition
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-
     micBtn.addEventListener('click', function() {
-        if (flag == 1) {
-            micGlow.classList.remove('normal-white');
-            micGlow.classList.add('big-green');
-            startVoiceRegistration()
-            flag = 0;
-        }
-        else {
-            micGlow.classList.remove('big-green');
-            micGlow.classList.add('normal-white');
-            recognition.stop();
-            flag = 1;
-        }
+        micGlow.classList.remove('normal-white');
+        micGlow.classList.add('big-green');
+        startVoiceRegistration();
     });
 }
 else {
