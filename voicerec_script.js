@@ -1,17 +1,3 @@
-const timerBar = document.getElementById('timer-bar');
-const letter = document.getElementById('letter');
-const micBtn = document.getElementById('btn');
-const micGlow = document.getElementById("copulation");
-const resultImg = document.getElementById('result-img');
-const resultTxt = document.getElementById('result-txt');
-const resultDiv = document.getElementById('result-div');
-const letterDiv = document.getElementById('letter-div');
-var userInput="";
-var flag = 1;
-var start_trial_test = true;
-var right_Eye_Check=false;
-
-
 function ratioMap(){
     // Creating a hashmap using Map
     let ratio={
@@ -32,8 +18,8 @@ function ratioMap(){
 
 
 function calculateOverallVision( ratio, leftKey, rightKey){
-    ratioL= parseInt(ratio[leftKey]);
-    ratioR= parseInt(ratio[rightKey]);
+    var ratioL= parseInt(ratio[leftKey]);
+    var ratioR= parseInt(ratio[rightKey]);
 
     if(ratioR>ratioL){
         return "20/"+ratioR;
@@ -58,7 +44,95 @@ function getRandomChar() {
     
     return randomChar;
 }
+
+function first_time(start_trial_test){
+    if(start_trial_test){ 
+        start_trial_test = false;
+        return 3;
+    }else{
+        return 0;
+    }
+}
+
+function switch_html(str){
+    window.location.href = str;
+    window.location.replace(str);
+    window.location.reload();
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function test() {
+    var incorrect_counter = 0;
+    var temp_counter = 0;
+    var counter_row = 0;
+    var randTemp = '';
+    
+    while (loop){
+        temp_counter = first_time(start_trial_test);
+    
+        if(!(temp_counter === 3 && incorrect_counter >= 2)){
+            incorrect_counter = 0;
+            ++counter_row;
+            for(let i = 0; i < 3; i++){
+                randTemp = getRandomChar();
+                letter.textContent = randTemp;
+                resultDiv.style.display = 'none';
+                letterDiv.style.display = 'flex';
+                colorBar.classList.remove('color-bar-animation');
+                void colorBar.offsetWidth;
+                colorBar.classList.add('color-bar-animation');
+                await sleep(10000);
+                
+                if(userInput != null && userInput.toLowerCase() === "dont know"){
+                    resultImg.src = './assets/images/xmark.png';
+                    resultTxt.textContent = 'Incorrect';
+                }
+                else{
+                    if(userInput === null || !areEqual(randTemp, userInput)){
+                        incorrect_counter++;
+                        resultImg.src = './assets/images/xmark.png';
+                        resultTxt.textContent = 'Incorrect';
+                    }
+                }
+
+                resultDiv.style.display = 'flex';
+                letterDiv.style.display = 'none';
+                await sleep(2000);
+            }
+        }
+        else{
+            if (right_eye_check === true) {
+                switch_html("end.html");
+                loop = false;
+            } else {
+                right_eye_check = true;
+                switch_html("righteye.html");
+            }
+        }   
+    }
+}
+
+
+
 // normel code
+const timerBar = document.getElementById('timer-bar');
+const colorBar = document.getElementById('color-bar');
+const micBtn = document.getElementById('btn');
+const micGlow = document.getElementById('copulation');
+const resultDiv = document.getElementById('result-div');
+const resultImg = document.getElementById('result-img');
+const resultTxt = document.getElementById('result-txt');
+const letterDiv = document.getElementById('letter-div');
+const letter = document.getElementById('letter');
+var userInput = '';
+var flag = 1;
+var start_trial_test = true;
+var right_eye_check = false;
+var loop = true;
+
 // Check if the browser supports Speech Recognition
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -91,65 +165,5 @@ else {
     letter.style.fontFamily = 'Exo 2, sans-serif';
     letter.textContent = 'Speech recognition not available';
 }
-var counter=0;
-var counter_row=0;
-var correct_counter=0;
 
-function first_time(){
-    if(start_trial_test){ 
-        correct_counter=3;
-        start_trial_test=false;
-    }
-}
-
-function test_per_row(){
-    for(i=1;i>=3;++i){
-        randTemp=getRandomChar();
-        letter.textContent = randTemp;
-        resultDiv.style.display = 'none';
-        letterDiv.style.display = 'flex';
-        setTimeout( 10000);
-        if(userInput.toLowerCase()==="dont know"){
-            resultImg.src = './assets/images/xmark.png';
-            resultTxt.textContent = 'Incorrect';
-        }else{
-            if(areEqual(randTemp, userInput)){
-                ++correct_counter;
-            }
-            else{
-                resultImg.src = './assets/images/xmark.png';
-                resultTxt.textContent = 'Incorrect';
-            }
-        }
-        resultDiv.style.display = 'flex';
-        letterDiv.style.display = 'none';
-        setTimeout( 200);
-        
-    }
-}
-
-function switch_to_screen(str){
-    window.location.href=str;
-    window.location.replace(str);
-    window.location.reload();
-}
-while (true){
-    
-    first_time();
-
-    if(correct_counter>=2){
-        ++counter_row;
-        test_per_row();
-
-    }else{
-        // if (right_Eye_Check === true) {
-        //     switch_to_screen("end.html");
-        //     break;
-        // } else {
-        //     right_Eye_Check= true;
-        //    switch_to_screen("righteye.html");
-        //     break;
-        // }
-    }   
-}
-
+test();
